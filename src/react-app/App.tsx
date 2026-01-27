@@ -15,19 +15,21 @@ function App() {
 		<>
 			<div>
 				<a href="https://vite.dev" target="_blank">
-					<img src={viteLogo} className="logo" alt="Vite logo" />
+					<img src={viteLogo} className="logo" alt="Vite logo" width="32" height="32" />
 				</a>
 				<a href="https://react.dev" target="_blank">
-					<img src={reactLogo} className="logo react" alt="React logo" />
+					<img src={reactLogo} className="logo react" alt="React logo" width="36" height="32" />
 				</a>
 				<a href="https://hono.dev/" target="_blank">
-					<img src={honoLogo} className="logo cloudflare" alt="Hono logo" />
+					<img src={honoLogo} className="logo cloudflare" alt="Hono logo" width="76" height="98" />
 				</a>
 				<a href="https://workers.cloudflare.com/" target="_blank">
 					<img
 						src={cloudflareLogo}
 						className="logo cloudflare"
 						alt="Cloudflare logo"
+						width="823"
+						height="356"
 					/>
 				</a>
 			</div>
