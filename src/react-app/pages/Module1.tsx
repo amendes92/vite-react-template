@@ -145,10 +145,10 @@ export default function Module1() {
       </main>
 
       <div className="fixed bottom-0 left-0 right-0 z-50 bg-surface-light dark:bg-surface-dark border-t border-gray-200 dark:border-gray-800 p-4 max-w-md mx-auto">
-        <button className="w-full rounded-xl bg-module1-primary px-4 py-3.5 text-sm font-bold text-white shadow-lg shadow-module1-primary/30 transition-all hover:bg-module1-primary/90 hover:shadow-module1-primary/40 focus:outline-none focus:ring-2 focus:ring-module1-primary focus:ring-offset-2 dark:focus:ring-offset-gray-900 flex items-center justify-center gap-2">
+        <Link to="/module/2" className="w-full rounded-xl bg-module1-primary px-4 py-3.5 text-sm font-bold text-white shadow-lg shadow-module1-primary/30 transition-all hover:bg-module1-primary/90 hover:shadow-module1-primary/40 focus:outline-none focus:ring-2 focus:ring-module1-primary focus:ring-offset-2 dark:focus:ring-offset-gray-900 flex items-center justify-center gap-2">
           <span>Salvar e Continuar</span>
           <span className="material-symbols-outlined text-lg">arrow_forward</span>
-        </button>
+        </Link>
       </div>
     </div>
   );

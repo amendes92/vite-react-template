@@ -83,7 +83,14 @@ export default function Module5NegativeKeywords() {
             <span>Total: 8 palavras</span>
             <span className="flex items-center gap-1"><span className="size-2 rounded-full bg-green-500"></span>Pronto para copiar</span>
           </div>
-          <button className="relative flex w-full items-center justify-center gap-2 overflow-hidden rounded-xl bg-primary px-6 py-3.5 text-white shadow-lg shadow-primary/20 transition-all hover:bg-primary-dark active:scale-[0.98]">
+          <button
+            onClick={() => {
+              const keywords = ["SUS", "Grátis", "Emprego", "Barato", "Popular", "Público", "De graça", "Estágio"];
+              navigator.clipboard.writeText(keywords.join(", "));
+              alert("Lista copiada para a área de transferência!");
+            }}
+            className="relative flex w-full items-center justify-center gap-2 overflow-hidden rounded-xl bg-primary px-6 py-3.5 text-white shadow-lg shadow-primary/20 transition-all hover:bg-primary-dark active:scale-[0.98]"
+          >
             <span className="material-symbols-outlined text-[20px]">content_copy</span>
             <span className="font-bold tracking-wide">Copiar Lista para o Ads</span>
           </button>

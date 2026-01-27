@@ -76,26 +76,28 @@ export default function Module5() {
           </Link>
 
           {/* Card 2: Especialidade + Geo */}
-          <div className="group relative flex flex-col gap-3 rounded-2xl bg-white dark:bg-surface-dark p-5 shadow-card hover:shadow-soft transition-all duration-300 border border-transparent hover:border-primary/20 cursor-pointer overflow-hidden">
-            <div className="absolute right-0 top-0 h-24 w-24 translate-x-8 -translate-y-8 rounded-full bg-orange-50 dark:bg-orange-900/10 group-hover:bg-orange-100/50 transition-colors"></div>
-            <div className="flex items-start justify-between z-10">
-              <div className="flex items-center gap-3">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-orange-50 dark:bg-orange-900/20 text-accent">
-                  <span className="material-symbols-outlined text-2xl">location_on</span>
+          <Link to="/module/5/structure" className="block">
+            <div className="group relative flex flex-col gap-3 rounded-2xl bg-white dark:bg-surface-dark p-5 shadow-card hover:shadow-soft transition-all duration-300 border border-transparent hover:border-primary/20 cursor-pointer overflow-hidden">
+              <div className="absolute right-0 top-0 h-24 w-24 translate-x-8 -translate-y-8 rounded-full bg-orange-50 dark:bg-orange-900/10 group-hover:bg-orange-100/50 transition-colors"></div>
+              <div className="flex items-start justify-between z-10">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-orange-50 dark:bg-orange-900/20 text-accent">
+                    <span className="material-symbols-outlined text-2xl">location_on</span>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-bold text-text-main-light dark:text-white group-hover:text-primary transition-colors">Especialidade + Geo</h4>
+                    <p className="text-sm font-medium text-text-sub-light dark:text-gray-400">Segmentação Local</p>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="text-lg font-bold text-text-main-light dark:text-white group-hover:text-primary transition-colors">Especialidade + Geo</h4>
-                  <p className="text-sm font-medium text-text-sub-light dark:text-gray-400">Segmentação Local</p>
+                <div className="rounded-full bg-gray-50 dark:bg-gray-800 p-1.5 text-gray-400 group-hover:text-primary group-hover:bg-blue-50 dark:group-hover:bg-blue-900/30 transition-colors">
+                  <span className="material-symbols-outlined text-xl">chevron_right</span>
                 </div>
               </div>
-              <div className="rounded-full bg-gray-50 dark:bg-gray-800 p-1.5 text-gray-400 group-hover:text-primary group-hover:bg-blue-50 dark:group-hover:bg-blue-900/30 transition-colors">
-                <span className="material-symbols-outlined text-xl">chevron_right</span>
-              </div>
+              <p className="text-sm text-text-sub-light dark:text-text-sub-dark leading-normal z-10">
+                "Ortopedista de Joelho em SP". Capture pacientes próximos buscando sua especialidade.
+              </p>
             </div>
-            <p className="text-sm text-text-sub-light dark:text-text-sub-dark leading-normal z-10">
-              "Ortopedista de Joelho em SP". Capture pacientes próximos buscando sua especialidade.
-            </p>
-          </div>
+          </Link>
 
           {/* Card 3: Sintomas (Negative Keywords for Demo Link) */}
           <Link to="/module/5/negative-keywords" className="block">

@@ -197,10 +197,10 @@ export default function Module3Anatomy() {
 
       {/* Sticky CTA */}
       <div className="fixed bottom-0 left-0 w-full bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 p-4 z-40 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
-        <button className="w-full bg-primary text-white font-bold h-12 rounded-xl flex items-center justify-center gap-2 hover:bg-blue-700 active:scale-[0.98] transition-all shadow-md shadow-blue-500/20">
+        <Link to="/module/5" className="w-full bg-primary text-white font-bold h-12 rounded-xl flex items-center justify-center gap-2 hover:bg-blue-700 active:scale-[0.98] transition-all shadow-md shadow-blue-500/20">
           <span className="material-symbols-outlined text-[20px]">visibility</span>
           Ver Detalhes de Cada Seção
-        </button>
+        </Link>
       </div>
     </div>
   );

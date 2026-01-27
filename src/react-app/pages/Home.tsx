@@ -199,22 +199,24 @@ export default function Home({ toggleTheme }: HomeProps) {
         </h2>
         <div className="flex flex-col gap-3">
           {/* Resource 1 */}
-          <div className="flex items-center gap-4 bg-surface-light dark:bg-surface-dark p-4 rounded-2xl border border-gray-100 dark:border-gray-800 shadow-sm cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800/80 transition-colors">
-            <div className="bg-primary/10 dark:bg-primary/20 p-3 rounded-xl text-primary">
-              <span className="material-symbols-outlined">query_stats</span>
+          <Link to="/module/3/anatomy">
+            <div className="flex items-center gap-4 bg-surface-light dark:bg-surface-dark p-4 rounded-2xl border border-gray-100 dark:border-gray-800 shadow-sm cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800/80 transition-colors">
+              <div className="bg-primary/10 dark:bg-primary/20 p-3 rounded-xl text-primary">
+                <span className="material-symbols-outlined">query_stats</span>
+              </div>
+              <div className="flex-1">
+                <h3 className="text-text-main-light dark:text-white text-base font-bold">
+                  Analisador de Site
+                </h3>
+                <p className="text-gray-500 dark:text-gray-400 text-xs">
+                  Avalie a performance da sua clínica
+                </p>
+              </div>
+              <span className="material-symbols-outlined text-gray-400">
+                chevron_right
+              </span>
             </div>
-            <div className="flex-1">
-              <h3 className="text-text-main-light dark:text-white text-base font-bold">
-                Analisador de Site
-              </h3>
-              <p className="text-gray-500 dark:text-gray-400 text-xs">
-                Avalie a performance da sua clínica
-              </p>
-            </div>
-            <span className="material-symbols-outlined text-gray-400">
-              chevron_right
-            </span>
-          </div>
+          </Link>
           {/* Resource 2 */}
           <Link to="/module/3/checklist">
             <div className="flex items-center gap-4 bg-surface-light dark:bg-surface-dark p-4 rounded-2xl border border-gray-100 dark:border-gray-800 shadow-sm cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800/80 transition-colors">
@@ -248,12 +250,12 @@ export default function Home({ toggleTheme }: HomeProps) {
             <span className="text-[10px] font-medium">Início</span>
           </button>
           {/* Modules */}
-          <button className="flex flex-col items-center justify-center gap-1 w-full text-gray-400 hover:text-gray-600 dark:hover:text-gray-300">
+          <Link to="/module/1" className="flex flex-col items-center justify-center gap-1 w-full text-gray-400 hover:text-gray-600 dark:hover:text-gray-300">
             <span className="material-symbols-outlined text-2xl">
               view_module
             </span>
             <span className="text-[10px] font-medium">Módulos</span>
-          </button>
+          </Link>
           {/* Reports */}
           <button className="flex flex-col items-center justify-center gap-1 w-full text-gray-400 hover:text-gray-600 dark:hover:text-gray-300">
             <span className="material-symbols-outlined text-2xl">

@@ -181,10 +181,10 @@ export default function Module3Checklist() {
 
       {/* Fixed Footer Button */}
       <div className="absolute bottom-0 left-0 right-0 p-4 bg-surface-light/90 dark:bg-surface-dark/90 backdrop-blur-md border-t border-border-light dark:border-border-dark z-30">
-        <button className="w-full flex items-center justify-center gap-2 rounded-xl h-14 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] shadow-lg hover:bg-blue-700 active:scale-[0.98] transition-all">
+        <Link to="/module/3/anatomy" className="w-full flex items-center justify-center gap-2 rounded-xl h-14 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] shadow-lg hover:bg-blue-700 active:scale-[0.98] transition-all">
           <span className="material-symbols-outlined" style={{ fontSize: "20px" }}>save</span>
           <span>Salvar Progresso</span>
-        </button>
+        </Link>
       </div>
     </div>
   );
