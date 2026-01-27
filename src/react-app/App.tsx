@@ -1,66 +1,46 @@
-// src/App.tsx
-
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import cloudflareLogo from "./assets/Cloudflare_Logo.svg";
-import honoLogo from "./assets/hono.svg";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useState, useEffect } from "react";
+import Home from "./pages/Home";
+import Module1 from "./pages/Module1";
+import Module2 from "./pages/Module2";
+import Module3Intro from "./pages/Module3Intro";
+import Module3Checklist from "./pages/Module3Checklist";
+import Module3Anatomy from "./pages/Module3Anatomy";
+import Module5 from "./pages/Module5";
+import Module5Structure from "./pages/Module5Structure";
+import Module5NegativeKeywords from "./pages/Module5NegativeKeywords";
 import "./App.css";
 
 function App() {
-	const [count, setCount] = useState(0);
-	const [name, setName] = useState("unknown");
+  const [isDark, setIsDark] = useState(false);
 
-	return (
-		<>
-			<div>
-				<a href="https://vite.dev" target="_blank">
-					<img src={viteLogo} className="logo" alt="Vite logo" />
-				</a>
-				<a href="https://react.dev" target="_blank">
-					<img src={reactLogo} className="logo react" alt="React logo" />
-				</a>
-				<a href="https://hono.dev/" target="_blank">
-					<img src={honoLogo} className="logo cloudflare" alt="Hono logo" />
-				</a>
-				<a href="https://workers.cloudflare.com/" target="_blank">
-					<img
-						src={cloudflareLogo}
-						className="logo cloudflare"
-						alt="Cloudflare logo"
-					/>
-				</a>
-			</div>
-			<h1>Vite + React + Hono + Cloudflare</h1>
-			<div className="card">
-				<button
-					onClick={() => setCount((count) => count + 1)}
-					aria-label="increment"
-				>
-					count is {count}
-				</button>
-				<p>
-					Edit <code>src/App.tsx</code> and save to test HMR
-				</p>
-			</div>
-			<div className="card">
-				<button
-					onClick={() => {
-						fetch("/api/")
-							.then((res) => res.json() as Promise<{ name: string }>)
-							.then((data) => setName(data.name));
-					}}
-					aria-label="get name"
-				>
-					Name from API is: {name}
-				</button>
-				<p>
-					Edit <code>worker/index.ts</code> to change the name
-				</p>
-			</div>
-			<p className="read-the-docs">Click on the logos to learn more</p>
-		</>
-	);
+  useEffect(() => {
+    if (isDark) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [isDark]);
+
+  const toggleTheme = () => setIsDark(!isDark);
+
+  return (
+    <BrowserRouter>
+      <div className="bg-background-light dark:bg-background-dark min-h-screen text-text-main-light dark:text-text-main-dark font-display transition-colors duration-200">
+        <Routes>
+          <Route path="/" element={<Home isDark={isDark} toggleTheme={toggleTheme} />} />
+          <Route path="/module/1" element={<Module1 />} />
+          <Route path="/module/2" element={<Module2 />} />
+          <Route path="/module/3" element={<Module3Intro />} />
+          <Route path="/module/3/checklist" element={<Module3Checklist />} />
+          <Route path="/module/3/anatomy" element={<Module3Anatomy />} />
+          <Route path="/module/5" element={<Module5 />} />
+          <Route path="/module/5/structure" element={<Module5Structure />} />
+          <Route path="/module/5/negative-keywords" element={<Module5NegativeKeywords />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
+  );
 }
 
 export default App;
