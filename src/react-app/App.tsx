@@ -10,6 +10,24 @@ import "./App.css";
 function App() {
 	const [count, setCount] = useState(0);
 	const [name, setName] = useState("unknown");
+	const [isLoading, setIsLoading] = useState(false);
+	const [error, setError] = useState<string | null>(null);
+
+	const handleFetchName = async () => {
+		setIsLoading(true);
+		setError(null);
+		try {
+			const res = await fetch("/api/");
+			if (!res.ok) throw new Error("Failed to fetch");
+			const data = (await res.json()) as { name: string };
+			setName(data.name);
+		} catch (err) {
+			setError("Error fetching name");
+			console.error(err);
+		} finally {
+			setIsLoading(false);
+		}
+	};
 
 	return (
 		<>
@@ -47,15 +65,18 @@ function App() {
 			</div>
 			<div className="card">
 				<button
-					onClick={() => {
-						fetch("/api/")
-							.then((res) => res.json() as Promise<{ name: string }>)
-							.then((data) => setName(data.name));
-					}}
+					onClick={handleFetchName}
 					aria-label="get name"
+					disabled={isLoading}
+					aria-busy={isLoading}
 				>
-					Name from API is: {name}
+					{isLoading ? "Loading..." : `Name from API is: ${name}`}
 				</button>
+				{error && (
+					<p role="alert" style={{ color: "red" }}>
+						{error}
+					</p>
+				)}
 				<p>
 					Edit <code>worker/index.ts</code> to change the name
 				</p>
