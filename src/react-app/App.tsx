@@ -10,6 +10,20 @@ import "./App.css";
 function App() {
 	const [count, setCount] = useState(0);
 	const [name, setName] = useState("unknown");
+	const [isLoading, setIsLoading] = useState(false);
+
+	const handleFetchName = async () => {
+		setIsLoading(true);
+		try {
+			const res = await fetch("/api/");
+			const data = (await res.json()) as { name: string };
+			setName(data.name);
+		} catch (error) {
+			console.error(error);
+		} finally {
+			setIsLoading(false);
+		}
+	};
 
 	return (
 		<>
@@ -47,14 +61,12 @@ function App() {
 			</div>
 			<div className="card">
 				<button
-					onClick={() => {
-						fetch("/api/")
-							.then((res) => res.json() as Promise<{ name: string }>)
-							.then((data) => setName(data.name));
-					}}
-					aria-label="get name"
+					onClick={handleFetchName}
+					aria-label={isLoading ? "Loading name" : "get name"}
+					aria-busy={isLoading}
+					disabled={isLoading}
 				>
-					Name from API is: {name}
+					{isLoading ? "Loading..." : `Name from API is: ${name}`}
 				</button>
 				<p>
 					Edit <code>worker/index.ts</code> to change the name
