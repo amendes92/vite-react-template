@@ -10,6 +10,7 @@ import "./App.css";
 function App() {
 	const [count, setCount] = useState(0);
 	const [name, setName] = useState("unknown");
+	const [isLoading, setIsLoading] = useState(false);
 
 	return (
 		<>
@@ -37,7 +38,7 @@ function App() {
 			<div className="card">
 				<button
 					onClick={() => setCount((count) => count + 1)}
-					aria-label="increment"
+					aria-label={`Increment count, current count is ${count}`}
 				>
 					count is {count}
 				</button>
@@ -48,13 +49,16 @@ function App() {
 			<div className="card">
 				<button
 					onClick={() => {
+						setIsLoading(true);
 						fetch("/api/")
 							.then((res) => res.json() as Promise<{ name: string }>)
-							.then((data) => setName(data.name));
+							.then((data) => setName(data.name))
+							.finally(() => setIsLoading(false));
 					}}
-					aria-label="get name"
+					disabled={isLoading}
+					aria-label={isLoading ? "Loading name" : `Get name, current name is ${name}`}
 				>
-					Name from API is: {name}
+					{isLoading ? "Loading..." : `Name from API is: ${name}`}
 				</button>
 				<p>
 					Edit <code>worker/index.ts</code> to change the name
