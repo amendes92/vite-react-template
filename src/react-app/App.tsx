@@ -10,20 +10,21 @@ import "./App.css";
 function App() {
 	const [count, setCount] = useState(0);
 	const [name, setName] = useState("unknown");
+	const [isLoading, setIsLoading] = useState(false);
 
 	return (
 		<>
 			<div>
-				<a href="https://vite.dev" target="_blank">
+				<a href="https://vite.dev" target="_blank" rel="noopener noreferrer">
 					<img src={viteLogo} className="logo" alt="Vite logo" width="32" height="32" />
 				</a>
-				<a href="https://react.dev" target="_blank">
+				<a href="https://react.dev" target="_blank" rel="noopener noreferrer">
 					<img src={reactLogo} className="logo react" alt="React logo" width="36" height="32" />
 				</a>
-				<a href="https://hono.dev/" target="_blank">
+				<a href="https://hono.dev/" target="_blank" rel="noopener noreferrer">
 					<img src={honoLogo} className="logo cloudflare" alt="Hono logo" width="76" height="98" />
 				</a>
-				<a href="https://workers.cloudflare.com/" target="_blank">
+				<a href="https://workers.cloudflare.com/" target="_blank" rel="noopener noreferrer">
 					<img
 						src={cloudflareLogo}
 						className="logo cloudflare"
@@ -37,7 +38,6 @@ function App() {
 			<div className="card">
 				<button
 					onClick={() => setCount((count) => count + 1)}
-					aria-label="increment"
 				>
 					count is {count}
 				</button>
@@ -48,13 +48,15 @@ function App() {
 			<div className="card">
 				<button
 					onClick={() => {
+						setIsLoading(true);
 						fetch("/api/")
 							.then((res) => res.json() as Promise<{ name: string }>)
-							.then((data) => setName(data.name));
+							.then((data) => setName(data.name))
+							.finally(() => setIsLoading(false));
 					}}
-					aria-label="get name"
+					disabled={isLoading}
 				>
-					Name from API is: {name}
+					{isLoading ? "Fetching..." : `Name from API is: ${name}`}
 				</button>
 				<p>
 					Edit <code>worker/index.ts</code> to change the name
